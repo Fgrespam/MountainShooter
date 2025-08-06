@@ -20,7 +20,7 @@ class Menu:
         while True:
             self.window.blit(source=self.surf, dest=self.rect) # primeiro desenha o espaço de fundo
                                                                 # depois os textos por cima
-            self.menu_text(50, "Mountain", COLOR_ORANGE, ((WIN_WIDTH / 2), 70))
+            self.menu_text(50, "Mountain", COLOR_WHITE, ((WIN_WIDTH / 2), 70))
             self.menu_text(50, "Shooter", COLOR_ORANGE, ((WIN_WIDTH / 2), 120))
 
             for i in range(len(MENU_OPTION)):
