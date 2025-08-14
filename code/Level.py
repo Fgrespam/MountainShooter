@@ -9,9 +9,11 @@ from pygame.rect import Rect
 from pygame.surface import Surface
 
 from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME
+from code.Enemy import Enemy
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
+from code.Player import Player
 
 
 class Level:
@@ -38,6 +40,10 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()  # Verifica se o jogador ou inimigo atirou
+                    if shoot is not None: # Se shoot não for None, significa que o jogador ou inimigo atirou
+                        self.entity_list.append(shoot)  # Adiciona o tiro do jogador ou inimigo à lista de entidades
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
