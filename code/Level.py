@@ -8,7 +8,7 @@ from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
 
-from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME
+from code.Const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME, C_GREEN, C_CYAN
 from code.Enemy import Enemy
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
@@ -43,7 +43,11 @@ class Level:
                 if isinstance(ent, (Player, Enemy)):
                     shoot = ent.shoot()  # Verifica se o jogador ou inimigo atirou
                     if shoot is not None: # Se shoot não for None, significa que o jogador ou inimigo atirou
-                        self.entity_list.append(shoot)  # Adiciona o tiro do jogador ou inimigo à lista de entidades
+                        self.entity_list.append(shoot) # adiciona o tiro na lista de entidades
+                if ent.name == 'Player1':
+                    self.level_text(14, f'Payer1 - Health: {ent.health} | Score: {ent.score}', C_GREEN, (10, 25))  # Mostra a vida do player1 na tela
+                if ent.name == 'Player2':
+                    self.level_text(14, f'Payer1 - Health: {ent.health} | Score: {ent.score}', C_CYAN, (10, 45))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -52,15 +56,15 @@ class Level:
                     choice = random.choice('Enemy1 Enemy2'.split()) # Escolhe aleatoriamente um inimigo
                     self.entity_list.append(EntityFactory.get_entity(choice))  # adiciona inimigo1
 
+
             # printed text
-            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f} s', COLOR_WHITE, (10, 5)) # Mostra o tempo em segundos na tela
-            self.level_text(14, f'fps: {clock.get_fps() :.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35)) # Mostra o fps na tela
-            self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20)) # Mostra o numero de entidades na tela
+            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f} s', C_WHITE, (10, 5)) # Mostra o tempo em segundos na tela
+            self.level_text(14, f'fps: {clock.get_fps() :.0f}', C_WHITE, (10, WIN_HEIGHT - 35)) # Mostra o fps na tela
+            self.level_text(14, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20)) # Mostra o numero de entidades na tela
             pygame.display.flip()
             # Collisions
             EntityMediator.verify_collision(entity_list=self.entity_list)# checa colisões entre entidades
             EntityMediator.verify_health(entity_list=self.entity_list)
-        pass
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)

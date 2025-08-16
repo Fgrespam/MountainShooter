@@ -2,9 +2,11 @@ import pygame
 
 
 # C
-COLOR_ORANGE =(255, 128, 0)
-COLOR_WHITE = (255, 255, 255)
-COLOR_YELLOW = (255, 255, 0)
+C_ORANGE =(255, 128, 0)
+C_WHITE = (255, 255, 255)
+C_YELLOW = (255, 255, 0)
+C_GREEN = (0, 128, 0)
+C_CYAN = (0, 128, 128)
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1 # Evento personalizado para spawn de inimigos
@@ -25,6 +27,56 @@ ENTITY_SPEED = { # Velocidade de cada entidade
     'Enemy2'   : 1,
     'Enemy2Shot': 2, # Tiro do inimigo 2
 }
+
+ENTITY_DAMAGE = { # Dano de cada entidade
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Level2Bg5': 0,
+    'Level2Bg6': 0,
+    'Player1'  : 1, # se a nave do jogador colidir com algo, ela causa 1 de dano
+    'Player1Shot': 25, # Tiro do jogador 1
+    'Player2'  : 1,
+    'Player2Shot': 20, # Tiro do jogador 2
+    'Enemy1'   : 1, # se a nave do inimigo colidir com algo, ela causa 1 de dano
+    'Enemy1Shot': 20, # Tiro do inimigo 1
+    'Enemy2'   : 1,
+    'Enemy2Shot': 15, # Tiro do inimigo 2
+}
+
+ENTITY_SCORE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Player1': 0,
+    'Player1Shot': 0,
+    'Player2': 0,
+    'Player2Shot': 0,
+    'Enemy1': 100,
+    'Enemy1Shot': 0,
+    'Enemy2': 125,
+    'Enemy2Shot': 0,
+}
+
+
 
 ENTITY_HEALTH = { # Vida de cada entidade
     'Level1Bg0': 999,
@@ -67,8 +119,8 @@ PLAYER_KEY_LEFT = {'Player1': pygame.K_LEFT,
                    'Player2': pygame.K_a}  # Jogador 1 usa seta para esquerda
 PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
                     'Player2': pygame.K_d}  # Jogador 1 usa seta para direita, jogador 2 usa D
-PLAYER_KEY_SHOOT = {'Player1': pygame.K_LCTRL,
-                    'Player2': pygame.K_RALT} # Jogador 1 usa Ctrl direito, jogador 2 usa Ctrl esquerdo
+PLAYER_KEY_SHOOT = {'Player1': pygame.K_LCTRL, # Jogador 1 usa CTRL esquerdo para atirar
+                    'Player2': pygame.K_RALT} # Jogador 2 usa ALT direito para atirar
 
 # S
 SPAWN_TIME = 4000 # Tempo em milissegundos para spawn de inimigos
