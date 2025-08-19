@@ -10,6 +10,7 @@ C_CYAN = (0, 128, 128)
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1 # Evento personalizado para spawn de inimigos
+EVENT_TIMEOUT = pygame.USEREVENT + 2 # Evento personalizado para timeout do level
 ENTITY_SPEED = { # Velocidade de cada entidade
     'Level1Bg0': 0,
     'Level1Bg1': 1,
@@ -18,6 +19,11 @@ ENTITY_SPEED = { # Velocidade de cada entidade
     'Level1Bg4': 4,
     'Level1Bg5': 5,
     'Level1Bg6': 6,
+    'Level2Bg0': 0,
+    'Level2Bg1': 1,
+    'Level2Bg2': 2,
+    'Level2Bg3': 3,
+    'Level2Bg4': 4,
     'Player1'  : 3,
     'Player1Shot': 3, # Tiro do jogador 1
     'Player2'  : 3,
@@ -41,8 +47,6 @@ ENTITY_DAMAGE = { # Dano de cada entidade
     'Level2Bg2': 0,
     'Level2Bg3': 0,
     'Level2Bg4': 0,
-    'Level2Bg5': 0,
-    'Level2Bg6': 0,
     'Player1'  : 1, # se a nave do jogador colidir com algo, ela causa 1 de dano
     'Player1Shot': 25, # Tiro do jogador 1
     'Player2'  : 1,
@@ -86,6 +90,11 @@ ENTITY_HEALTH = { # Vida de cada entidade
     'Level1Bg4': 999,
     'Level1Bg5': 999,
     'Level1Bg6': 999,
+    'Level2Bg0': 999,
+    'Level2Bg1': 999,
+    'Level2Bg2': 999,
+    'Level2Bg3': 999,
+    'Level2Bg4': 999,
     'Player1'  : 300,
     'Player1Shot': 1, # Tiro do jogador 1
     'Player2'  : 300,
@@ -124,6 +133,10 @@ PLAYER_KEY_SHOOT = {'Player1': pygame.K_LCTRL, # Jogador 1 usa CTRL esquerdo par
 
 # S
 SPAWN_TIME = 4000 # Tempo em milissegundos para spawn de inimigos
+
+ # T
+TIMEOUT_STEP = 100 # Tempo em milissegundos para o evento de timeout do level
+TIMEOUT_LEVEL = 20000  # Tempo em milissegundos para o timeout do level (20 segundos)
 
 # W
 WIN_WIDTH = 576
