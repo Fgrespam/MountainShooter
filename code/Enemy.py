@@ -11,7 +11,7 @@ class Enemy(Entity):
         super().__init__(name, position)
         self.shot_delay = ENTITY_SHOT_DELAY[self.name]
 
-    def move(self, ):
+    def move(self):
         self.rect.centerx -= ENTITY_SPEED[self.name] # move a entidade para a esquerda
 
     def shoot(self): # metodo para atirar

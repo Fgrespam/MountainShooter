@@ -81,8 +81,8 @@ class Level:
 
 
             # printed text
-            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f} s', C_WHITE, (10, 5)) # Mostra o tempo em segundos na tela
-            self.level_text(14, f'fps: {clock.get_fps() :.0f}', C_WHITE, (10, WIN_HEIGHT - 35)) # Mostra o fps na tela
+            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f} s', C_WHITE, (10, 5)) # Mostra o tempo em segundos na tela
+            self.level_text(14, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, WIN_HEIGHT - 35)) # Mostra o fps na tela
             self.level_text(14, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20)) # Mostra o numero de entidades na tela
             pygame.display.flip()
             # Collisions

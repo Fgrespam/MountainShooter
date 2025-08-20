@@ -19,5 +19,5 @@ class Entity(ABC):
         self.last_dmg = 'None' # para saber de onde veio o ultimo dano
 
     @abstractmethod
-    def move(self, ):
+    def move(self):
         pass

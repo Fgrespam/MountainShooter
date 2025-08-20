@@ -14,7 +14,7 @@ class Player(Entity):
         self.shot_delay = ENTITY_SHOT_DELAY[self.name]
 
 
-    def move(self, ):
+    def move(self):
         pressed_keys = pygame.key.get_pressed() # obter as teclas pressionadas
         if pressed_keys[PLAYER_KEY_UP[self.name]] and self.rect.top > 0: # verifica se a tecla de cima foi pressionada e se o player nao esta no topo da tela
             self.rect.centery -= ENTITY_SPEED[self.name]  # move o player para cima
